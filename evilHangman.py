@@ -36,6 +36,17 @@ def crtanje_prozora():
     
     pygame.display.update()
 
+# namestanje dugmica
+d = round(sirina_prozora / 13) #uvecanje prilikom iscrtavanja kvadratica
+ZELENA=(85, 107, 47)
+for i in range(27):
+    if i < 13:
+        y = 40
+        x = 25 + (d * i)
+    else:
+        x = 25 + (d * (i - 13))
+        y = 85
+    buttons.append([ZELENA, x, y, 30, True, 97 + i])
      
 igra = True
 
