@@ -14,6 +14,11 @@ buttons = []
 #font dugmadi
 font_dugmad = pygame.font.SysFont("courier", 20)
 
+sound = 'hangman.mp3'
+pygame.mixer.init()
+pygame.mixer.music.load(sound)
+pygame.mixer.music.play(-1, 0.0)
+
 #ovom funkcijom iscrtavamo prozor igre
 def crtanje_prozora():
     global slike
