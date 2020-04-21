@@ -14,6 +14,10 @@ buttons = []
 #font dugmadi
 font_dugmad = pygame.font.SysFont("courier", 20)
 
+pokusana_slova = []
+#font ispisa
+font_pogodak = pygame.font.SysFont("courier", 24)
+
 sound = 'hangman.mp3'
 pygame.mixer.init()
 pygame.mixer.music.load(sound)
@@ -33,6 +37,10 @@ def crtanje_prozora():
             pygame.draw.rect(prozor, buttons[i][0], (buttons[i][1], buttons[i][2], buttons[i][3], buttons[i][3]))
             label = font_dugmad.render(chr(buttons[i][5]), 1, CRNA)
             prozor.blit(label, (buttons[i][1] + (label.get_width()/1.5), buttons[i][2] + (label.get_height() / 6)))
+      
+    #dodavanje labele za ispis slova na prozoru
+    label1 = font_pogodak.render(ispis(pokusana_slova,rec), 1, CRNA)
+    prozor.blit(label1,(200, 450)) #moze da se promeni, videcemo na kraju
     
     pygame.display.update()
     
