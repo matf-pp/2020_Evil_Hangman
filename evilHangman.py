@@ -35,7 +35,20 @@ def crtanje_prozora():
             prozor.blit(label, (buttons[i][1] + (label.get_width()/1.5), buttons[i][2] + (label.get_height() / 6)))
     
     pygame.display.update()
+    
+#definisem funkciju koja ce da ispisuje slova reci na prozoru - crtice su na pocetku jer nije bilo pogodaka
+def ispis(pogodak=[],rec): 
+    pog_slova= pogodak
+    r_ispis = ''
+    for x in range(len(rec)):
+        r_ispis += '_ ' #stavicu onoliko crtica koliko imam slova u reci koju pogadjam
+        for i in range(len(pog_slova)): 
+            if rec[x] == pog_slova[i]: #ako je slovo reci koje se pogadja bas ono koje smo izabrali..
+                r_ispis = r_ispis[:-2] # ovo radim da bih izbisala crticu i belinu, i umesto nje dodala slovo
+                r_ispis += rec[x].upper() + ' ' # .. ovde zamenim crticu velikim slovom koje smo izabrali (moze i malo, ali deluje mi lepse da je veliko :))
 
+    return r_ispis    
+    
 # namestanje dugmica
 d = round(sirina_prozora / 13) #uvecanje prilikom iscrtavanja kvadratica
 ZELENA=(85, 107, 47)
