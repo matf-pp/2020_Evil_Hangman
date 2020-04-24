@@ -56,6 +56,21 @@ def ispis(pogodak=[],rec):
                 r_ispis += rec[x].upper() + ' ' # .. ovde zamenim crticu velikim slovom koje smo izabrali (moze i malo, ali deluje mi lepse da je veliko :))
 
     return r_ispis    
+
+
+
+def vrati_duzinu(reci):
+    duzine_reci =[]
+    for r in reci:
+        duz = r.__len__()
+        if(duz not in duzine_reci):
+            duzine_reci.append(duz) #lista duzina reci
+             
+    duzine_reci.sort()
+    
+    duz = duzine_reci[int( random.randint(3,len(duzine_reci)-1))]
+    return duz
+
     
 # namestanje dugmica
 d = round(sirina_prozora / 13) #uvecanje prilikom iscrtavanja kvadratica
