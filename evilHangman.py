@@ -71,6 +71,14 @@ def vrati_duzinu(reci):
     duz = duzine_reci[int( random.randint(3,len(duzine_reci)-1))]
     return duz
 
+#postavljanje pocetnih stanja reci - zelimo ovom funkcijom da dobijemo odredjen oblik reci koji koristimo da bismo ostigli da bude evil
+def postavi_stanje(duzina_reci):
+    stanje = ""
+    while duzina_reci > 0:
+        stanje += "-"
+        duzina_reci = duzina_reci- 1 #ovo su zapravo stanja na pocetku, pa su samo crtice, menjacemo ih slovima kasnije u programu, to je ideja
+    return stanje
+
     
 # namestanje dugmica
 d = round(sirina_prozora / 13) #uvecanje prilikom iscrtavanja kvadratica
