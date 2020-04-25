@@ -39,7 +39,7 @@ def crtanje_prozora():
             prozor.blit(label, (buttons[i][1] + (label.get_width()/1.5), buttons[i][2] + (label.get_height() / 6)))
       
     #dodavanje labele za ispis slova na prozoru
-    label1 = font_pogodak.render(ispis(pokusana_slova,rec), 1, CRNA)
+    label1 = font_pogodak.render(ispis(rec,pokusana_slova), 1, CRNA)
     prozor.blit(label1,(200, 450)) #moze da se promeni, videcemo na kraju
     
     pygame.display.update()
@@ -98,6 +98,11 @@ for i in range(27):
         x = 25 + (d * (i - 13))
         y = 85
     buttons.append([ZELENA, x, y, 30, True, 97 + i])
+
+#citanje reci iz datoteke
+with open('reci.txt') as file:
+    reci = file.read().splitlines()
+
      
 igra = True
 
