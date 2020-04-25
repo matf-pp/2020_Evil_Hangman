@@ -45,7 +45,7 @@ def crtanje_prozora():
     pygame.display.update()
     
 #definisem funkciju koja ce da ispisuje slova reci na prozoru - crtice su na pocetku jer nije bilo pogodaka
-def ispis(pogodak=[],rec): 
+def ispis(rec, pogodak=[]): 
     pog_slova= pogodak
     r_ispis = ''
     for x in range(len(rec)):
@@ -79,6 +79,13 @@ def postavi_stanje(duzina_reci):
         duzina_reci = duzina_reci- 1 #ovo su zapravo stanja na pocetku, pa su samo crtice, menjacemo ih slovima kasnije u programu, to je ideja
     return stanje
 
+# vrati listu svih reci sa datom duzinom
+def postavi_preostale(lines, duzina):
+    words = []
+    for r in lines:
+        if(r.__len__() == duzina):
+            words.append(r)
+    return words
     
 # namestanje dugmica
 d = round(sirina_prozora / 13) #uvecanje prilikom iscrtavanja kvadratica
