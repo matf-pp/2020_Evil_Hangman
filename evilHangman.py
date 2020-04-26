@@ -107,6 +107,12 @@ with open('reci.txt') as file:
 rec_duzina = vrati_duzinu(reci) #uzimamo random duzinu reci
 broj_pokusaja = 5 #ovoliko pokusaja imamo zbog slika
 
+preostale_reci = postavi_preostale(reci, rec_duzina) #pravimolistu reci koje imaju datu duzinu i to nam je pocetna lista
+trenutno_stanje = postavi_stanje(rec_duzina) #pocetno stanje 
+pokusana_slova =[] #na pocetku je to prazna lista
+rec = trenutno_stanje #rec mora da bude trenutno stanje jer ne mozemo da uzimamo random rec iz liste preostale_reci jer ce ta lista stalno da se menja (jer je evil hangman)
+
+
      
 igra = True
 
