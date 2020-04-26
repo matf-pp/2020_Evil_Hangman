@@ -97,7 +97,25 @@ def vrati_stanje(r_familija, pokusana_slova):
         else: 
             stanje += "-"
     return stanje
-    
+ 
+#pravimo mapu - status reci(bice to rec koja sadzi crtice  i slova koja smo pogodili)kao kljuc, a vrednost ce biti br reci sa istim statusom(istim oblikom)    
+def postavi_familije(preostale_reci, slovo):
+    familije_reci = dict() #recnik
+    for r in preostale_reci: #preostale reci su reci koje imaju isti br slova kao ona koja je data
+        status = "" #na pocetku nista
+        for s in r: 
+            if(s != slovo):
+                status += "-"
+            else:
+                status += slovo
+        #sko takav oblik reci ne postoji u recniku        
+        if(status not in familije_reci):
+            familije_reci[status] = 1
+        else:
+            familije_reci[status] = familije_reci[status] + 1 #samo dodajemo br reci sa takvim statusom
+    return familije_reci
+
+
 # namestanje dugmica
 d = round(sirina_prozora / 13) #uvecanje prilikom iscrtavanja kvadratica
 ZELENA=(85, 107, 47)
