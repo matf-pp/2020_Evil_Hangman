@@ -103,6 +103,10 @@ for i in range(27):
 with open('reci.txt') as file:
     reci = file.read().splitlines()
 
+# inicijalizacija pre pocetka igre
+rec_duzina = vrati_duzinu(reci) #uzimamo random duzinu reci
+broj_pokusaja = 5 #ovoliko pokusaja imamo zbog slika
+
      
 igra = True
 
