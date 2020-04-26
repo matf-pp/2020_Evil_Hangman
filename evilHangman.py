@@ -10,7 +10,7 @@ CRNA = (0, 0, 0)
 
 slike = [pygame.image.load('il2.png'), pygame.image.load('il3.png'), pygame.image.load('il4.png'), pygame.image.load('il5.png'), pygame.image.load('il6.png'), pygame.image.load('il7.png'), pygame.image.load('il1.png')]
 
-
+rec = ''
 buttons = []
 #font dugmadi
 font_dugmad = pygame.font.SysFont("courier", 20)
@@ -87,6 +87,16 @@ def postavi_preostale(lines, duzina):
         if(r.__len__() == duzina):
             words.append(r)
     return words
+
+#azuriranje stanje (dodavanje slova ukoliko je potrebno)
+def vrati_stanje(r_familija, pokusana_slova):
+    stanje = ""
+    for s in r_familija:
+        if(s in pokusana_slova):
+            stanje += s
+        else: 
+            stanje += "-"
+    return stanje
     
 # namestanje dugmica
 d = round(sirina_prozora / 13) #uvecanje prilikom iscrtavanja kvadratica
