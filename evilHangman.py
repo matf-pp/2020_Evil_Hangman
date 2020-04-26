@@ -50,11 +50,11 @@ def ispis(rec, pogodak=[]):
     pog_slova= pogodak
     r_ispis = ''
     for x in range(len(rec)):
-        r_ispis += '_ ' #stavicu onoliko crtica koliko imam slova u reci koju pogadjam
+        r_ispis += '__ ' #stavicu onoliko crtica(dve crtice za jedno slovo) koliko imam slova u reci koju pogadjam
         for i in range(len(pog_slova)): 
             if rec[x] == pog_slova[i]: #ako je slovo reci koje se pogadja bas ono koje smo izabrali..
-                r_ispis = r_ispis[:-2] # ovo radim da bih izbisala crticu i belinu, i umesto nje dodala slovo
-                r_ispis += rec[x].upper() + ' ' # .. ovde zamenim crticu velikim slovom koje smo izabrali (moze i malo, ali deluje mi lepse da je veliko :))
+                r_ispis = r_ispis[:-3] # ovo radim da bih izbisala dve crtice i belinu, i umesto nje dodala slovo
+                r_ispis += rec[x].upper() + '  ' # .. ovde zamenim crticu velikim slovom koje smo izabrali (moze i malo, ali deluje mi lepse da je veliko :))
 
     return r_ispis    
 
