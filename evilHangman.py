@@ -115,6 +115,21 @@ def postavi_familije(preostale_reci, slovo):
             familije_reci[status] = familije_reci[status] + 1 #samo dodajemo br reci sa takvim statusom
     return familije_reci
 
+#pravimo novu listu na osnovu familije koja sadrzi sve reci sa istim stanjem
+def postavi_listu(preostale_reci, slovo, familija):
+    words = []
+    for r in preostale_reci:
+        r_familija = ""
+        for s in r: #pravimo familiju reci
+            if(s == slovo):
+                r_familija += slovo
+            else:
+                r_familija += "-"
+         #ako je nasa familija jednaka datoj familiji onda tu rec dodajemo u listu words       
+        if(r_familija == familija):
+            words.append(r)
+    return words
+
 
 # namestanje dugmica
 d = round(sirina_prozora / 13) #uvecanje prilikom iscrtavanja kvadratica
