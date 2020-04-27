@@ -100,6 +100,20 @@ def vrati_stanje(r_familija, pokusana_slova):
             stanje += "-"
     return stanje
  
+#lista preostalih reci
+def vrati_preostale(slovo, preostale_reci, broj_pokusaja, rec_duzina):  
+    familije_reci = postavi_familije(preostale_reci, slovo) #reci koje imaju isto stanje
+
+    familija = postavi_stanje(rec_duzina) #pocetno stanje za daru duzinu
+    
+    if(broj_pokusaja == 0 and familija in familije_reci): 
+        familija = postavi_stanje(rec_duzina) #nista nismo pogodili i varacamo (pocetno)stanje reci date duzine
+    else:
+        familija = vrati_najvecu(familije_reci) # ako jos nismo izgubili vracamo najvecu mogucu familiju reci
+
+    words = postavi_listu(preostale_reci, slovo, familija) #postavljamo listu reci na osnovu familije
+    return words
+    
 #pravimo mapu - status reci(bice to rec koja sadzi crtice  i slova koja smo pogodili)kao kljuc, a vrednost ce biti br reci sa istim statusom(istim oblikom)    
 def postavi_familije(preostale_reci, slovo):
     familije_reci = dict() #recnik
