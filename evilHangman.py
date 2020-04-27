@@ -41,7 +41,9 @@ def crtanje_prozora():
       
     #dodavanje labele za ispis slova na prozoru
     label1 = font_pogodak.render(ispis(rec,pokusana_slova), 1, CRNA)
-    prozor.blit(label1,(200, 450)) #moze da se promeni, videcemo na kraju
+    rect = label1.get_rect() #izmena, uzimamo dimenzije prozora
+    duzina = rect[2] #y koordinata
+    prozor.blit(label1,(sirina_prozora/3 - duzina/3, 450)) #da ne bi bilo fiksno i ako je predugacka rec, izlazi van prozora, ovako ce polozaj da se menja u zavisnosti od duzine reci
     
     pygame.display.update()
     
