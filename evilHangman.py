@@ -156,6 +156,18 @@ def vrati_najvecu(familije_reci):
             najveca_familija = familija
     return najveca_familija
 
+#iscrtavanje poruke o pobedi ili porazu
+def kraj(pobednik, rec):
+    global delovi
+    ZELENA=(85, 107, 47)
+    
+    crtanje_prozora()
+    pygame.time.delay(1000)
+    prozor.fill(ZELENA)
+
+    poruka_poraz = 'Izgubili ste!!'
+    poruka_pobeda = 'POBEDA!'
+
 
 # namestanje dugmica
 d = round(sirina_prozora / 13) #uvecanje prilikom iscrtavanja kvadratica
