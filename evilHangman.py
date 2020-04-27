@@ -130,6 +130,16 @@ def postavi_listu(preostale_reci, slovo, familija):
             words.append(r)
     return words
 
+#vracamo onu familiju(one reci koje imaju status kao ona koju pogadjamo) sa najvecim brojem reci u sebi
+def vrati_najvecu(familije_reci):
+    najveca_familija = "" #inicijalizacija na pocetku, nemamo najvecu, trazimo je u for-u
+    maksimum = 0
+    for familija in familije_reci:
+        if familije_reci[familija] > maksimum:
+            maksimum = familije_reci[familija]
+            najveca_familija = familija
+    return najveca_familija
+
 
 # namestanje dugmica
 d = round(sirina_prozora / 13) #uvecanje prilikom iscrtavanja kvadratica
