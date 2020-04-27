@@ -167,6 +167,13 @@ def kraj(pobednik, rec):
 
     poruka_poraz = 'Izgubili ste!!'
     poruka_pobeda = 'POBEDA!'
+    if pobednik == True:
+        label = font_kraj.render(poruka_pobeda, 1, CRNA)
+    else:
+        #iscrtavamo sliku u slucaju poraza
+        label = font_kraj.render(poruka_poraz, 1, CRNA)
+        slika = slike[6]
+        prozor.blit(slika, (sirina_prozora/15 - slika.get_width()/3 +10, 50))
 
 
 # namestanje dugmica
