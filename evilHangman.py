@@ -60,6 +60,16 @@ def ispis(rec, pogodak=[]):
 
     return r_ispis    
 
+#funkcija koja na osnovu koordinata koje dobije vraca koja dugme(odnosno slovo) kliknuli
+def klik_dugme(x, y):
+    for i in range(len(buttons)):
+        if x < buttons[i][1] + 25 and x > buttons[i][1] - 25:
+            if y < buttons[i][2] + 24 and y > buttons[i][2] - 24:
+                return buttons[i][5]
+    return None
+
+
+
 
 
 def vrati_duzinu(reci):
