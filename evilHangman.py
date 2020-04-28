@@ -197,6 +197,17 @@ def kraj(pobednik, rec):
     prozor.blit(label, (sirina_prozora / 2 - label.get_width() / 2,100))#dodavanje labele za ispis da li smo pobedili ili izgubili
   
     pygame.display.update()
+    
+    #ponovno pokretanje igre
+    again = True
+    while again:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT: #ukoliko smo kliknuli na x onda gasim prozor i izlazimo iz igrice 
+                pygame.quit()
+            if event.type == pygame.KEYDOWN: #ukoliko se unese nesto sa tastature pokrece se nova igra
+                again = False
+    restart() #pokrecemo novu igru
+
 
 def restart():
     global rec_duzina
