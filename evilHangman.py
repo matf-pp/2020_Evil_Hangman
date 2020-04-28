@@ -269,7 +269,30 @@ while igra:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             igra = False    
-    
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_ESCAPE:
+                igra = False
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            pozicija_misa = pygame.mouse.get_pos()
+            slovo = klik_dugme(pozicija_misa[0], pozicija_misa[1])
+            if slovo != None:
+                pokusana_slova.append((chr(slovo)))
+                buttons[slovo - 97][4] = False
+                preostale_reci = vrati_preostale(chr(slovo), preostale_reci, broj_pokusaja, rec_duzina)
+                trenutno_stanje = vrati_stanje(preostale_reci[0], pokusana_slova)
+                rec = trenutno_stanje
+                if chr(slovo) not in trenutno_stanje:
+                    if delovi != 5:
+                        delovi += 1
+                        broj_pokusaja -= 1
+                        
+                    else:#izgubio
+                        kraj(False, preostale_reci[0])
+                    
+                else:
+                    print(ispis(trenutno_stanje, pokusana_slova))
+                    if ispis(trenutno_stanje, pokusana_slova).count('_') == 0:#pobedio
+                        kraj(True, trenutno_stanje)
 
-   
+
 pygame.quit()
