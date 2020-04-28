@@ -24,6 +24,7 @@ pygame.mixer.init()
 pygame.mixer.music.load(sound)
 pygame.mixer.music.play(-1, 0.0)
 
+
 #ovom funkcijom iscrtavamo prozor igre
 def crtanje_prozora():
     global slike
@@ -166,6 +167,8 @@ def vrati_najvecu(familije_reci):
             najveca_familija = familija
     return najveca_familija
 
+#font za ispis reci na kraju igre
+font_kraj = pygame.font.SysFont('courier', 45)
 #iscrtavanje poruke o pobedi ili porazu
 def kraj(pobednik, rec):
     global delovi
@@ -184,6 +187,16 @@ def kraj(pobednik, rec):
         label = font_kraj.render(poruka_poraz, 1, CRNA)
         slika = slike[6]
         prozor.blit(slika, (sirina_prozora/15 - slika.get_width()/3 +10, 50))
+        
+    #ispisivanje trazene reci na kraju igre na prozoru    
+    rec_tekst = font_kraj.render(rec.upper(), 1, CRNA)
+    poruka_rec = font_kraj.render('Rec je bila: ', 1, CRNA)
+    prozor.blit(rec_tekst, (sirina_prozora/2 - rec_tekst.get_width()/2, 295))
+    prozor.blit(poruka_rec, (sirina_prozora/2 - poruka_rec.get_width()/2, 245))
+    
+    prozor.blit(label, (sirina_prozora / 2 - label.get_width() / 2,100))#dodavanje labele za ispis da li smo pobedili ili izgubili
+  
+    pygame.display.update()
 
 def restart():
     global rec_duzina
