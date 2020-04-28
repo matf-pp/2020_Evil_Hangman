@@ -175,6 +175,20 @@ def kraj(pobednik, rec):
         slika = slike[6]
         prozor.blit(slika, (sirina_prozora/15 - slika.get_width()/3 +10, 50))
 
+def restart():
+    global rec_duzina
+    global broj_pokusaja
+    global preostale_reci
+    global trenutno_stanje
+    global buttons
+    global pokusana_slova
+
+    rec_duzina = vrati_duzinu(reci)
+    broj_pokusaja = 5
+    
+    preostale_reci = postavi_preostale(reci, rec_duzina)
+    trenutno_stanje = postavi_stanje(rec_duzina)
+    pokusana_slova =[]        
 
 # namestanje dugmica
 d = round(sirina_prozora / 13) #uvecanje prilikom iscrtavanja kvadratica
