@@ -211,7 +211,17 @@ def restart():
     
     preostale_reci = postavi_preostale(reci, rec_duzina)
     trenutno_stanje = postavi_stanje(rec_duzina)
-    pokusana_slova =[]        
+    pokusana_slova =[]       
+    
+    global rec
+    rec=trenutno_stanje
+        
+    for i in range(len(buttons)):
+        buttons[i][4] = True
+       
+    crtanje_prozora()
+    global delovi
+    delovi=0
 
 # namestanje dugmica
 d = round(sirina_prozora / 13) #uvecanje prilikom iscrtavanja kvadratica
