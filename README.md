@@ -7,6 +7,8 @@ moguće.
 
 Igrač ima tedenciju da se suprostavi ovom neprijatelju!
 
+![Evil Hangman](https://github.com/matf-pp/2020_Evil_Hangman/blob/master/il1.png?raw=true)
+
 ## Jezici i tehnologije koje su korišćene u izradi
 
 Programski jezik: Python3 
