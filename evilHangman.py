@@ -27,9 +27,13 @@ pygame.mixer.music.play(-1, 0.0)
 #font za ispis reci na kraju igre
 font_kraj = pygame.font.SysFont('courier', 45)
 
+#inicijalizacija za deo slike, na pocetku je iscrtavanje samo prve slike u nizu
+delovi = 0
 #ovom funkcijom iscrtavamo prozor igre
 def crtanje_prozora():
     global slike
+    global delovi
+    global pokusana_slova
     ZUTA = (238, 232, 170)
     SVETLOZELENA=(208,240,192)
     prozor.fill(SVETLOZELENA)
@@ -51,6 +55,8 @@ def crtanje_prozora():
     labela_broj = font_kraj.render("Broj preostalih reci: " + str(len(preostale_reci)), 1, CRNA)
     prozor.blit(labela_broj ,(50, 550)) #labela koliko je ostalo reci
     
+    slika = slike[delovi]
+    prozor.blit(slika, (sirina_prozora/15 - slika.get_width()/3 +10, 100))#ovaj deo pomera sliku
     pygame.display.update()
     
 #definisem funkciju koja ce da ispisuje slova reci na prozoru - crtice su na pocetku jer nije bilo pogodaka
