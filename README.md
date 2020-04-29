@@ -30,6 +30,8 @@ Otvoriti command prompt u "Run as Administrator" modu i pokrenuti narednu komand
 
 ## Autori
 Mila Milovanović, kontakt: mila98milovanovic@gmail.com
+
 Jovana Adžić, kontakt: jovanaadzic42@gmail.com
+
 Nemanja Radojičić, kontakt: nradojicic98@gmail.com
 
