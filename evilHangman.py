@@ -24,6 +24,8 @@ pygame.mixer.init()
 pygame.mixer.music.load(sound)
 pygame.mixer.music.play(-1, 0.0)
 
+#font za ispis reci na kraju igre
+font_kraj = pygame.font.SysFont('courier', 45)
 
 #ovom funkcijom iscrtavamo prozor igre
 def crtanje_prozora():
@@ -45,6 +47,9 @@ def crtanje_prozora():
     rect = label1.get_rect() #izmena, uzimamo dimenzije prozora
     duzina = rect[2] #y koordinata
     prozor.blit(label1,(sirina_prozora/3 - duzina/3, 450)) #da ne bi bilo fiksno i ako je predugacka rec, izlazi van prozora, ovako ce polozaj da se menja u zavisnosti od duzine reci
+    
+    labela_broj = font_kraj.render("Broj preostalih reci: " + str(len(preostale_reci)), 1, CRNA)
+    prozor.blit(labela_broj ,(50, 550)) #labela koliko je ostalo reci
     
     pygame.display.update()
     
@@ -167,8 +172,7 @@ def vrati_najvecu(familije_reci):
             najveca_familija = familija
     return najveca_familija
 
-#font za ispis reci na kraju igre
-font_kraj = pygame.font.SysFont('courier', 45)
+
 #iscrtavanje poruke o pobedi ili porazu
 def kraj(pobednik, rec):
     global delovi
