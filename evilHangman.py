@@ -34,7 +34,6 @@ def crtanje_prozora():
     global slike
     global delovi
     global pokusana_slova
-    ZUTA = (238, 232, 170)
     SVETLOZELENA=(208,240,192)
     prozor.fill(SVETLOZELENA)
     
@@ -300,7 +299,6 @@ while igra:
                         kraj(False, preostale_reci[0])
                     
                 else:
-                    print(ispis(trenutno_stanje, pokusana_slova))
                     if ispis(trenutno_stanje, pokusana_slova).count('_') == 0:#pobedio
                         kraj(True, trenutno_stanje)
 
