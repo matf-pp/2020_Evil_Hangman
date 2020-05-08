@@ -2,8 +2,8 @@ import pygame
 import random
 
 pygame.init()
-visina_prozora = 650
-sirina_prozora = 1000
+visina_prozora = 680
+sirina_prozora = 1350
 prozor=pygame.display.set_mode((sirina_prozora, visina_prozora))
 
 CRNA = (0, 0, 0)
@@ -92,7 +92,7 @@ def vrati_duzinu(reci):
              
     duzine_reci.sort()
     
-    duz = duzine_reci[int( random.randint(3,len(duzine_reci)-1))]
+    duz = duzine_reci[int( random.randint(2,20))]
     return duz
 
 #postavljanje pocetnih stanja reci - zelimo ovom funkcijom da dobijemo odredjen oblik reci koji koristimo da bismo ostigli da bude evil
