@@ -54,6 +54,10 @@ def crtanje_prozora():
     labela_broj = font_kraj.render("Broj preostalih reci: " + str(len(preostale_reci)), 1, CRNA)
     prozor.blit(labela_broj ,(50, 550)) #labela koliko je ostalo reci
     
+    #dodavanje dugmeta za pomoc
+    if greenbutton:
+        greenbutton.draw(prozor)
+    
     slika = slike[delovi]
     prozor.blit(slika, (sirina_prozora/15 - slika.get_width()/3 +10, 100))#ovaj deo pomera sliku
     pygame.display.update()
@@ -82,6 +86,7 @@ def klik_dugme(x, y):
 
 
 class button():
+    
     def __init__(self, boja, x,y,sirina,visina, text=''):
         self.color = boja
         self.x = x
@@ -99,8 +104,8 @@ class button():
         pygame.draw.rect(win, self.color, (self.x,self.y,self.width,self.height),0)
         
         if self.text != '':
-            font = pygame.font.SysFont('comicsans', 60)
-            text = font.render(self.text, 1, (0,0,0))
+            font = pygame.font.SysFont('courier', 40)
+            text = font.render(self.text, 1, CRNA)
             win.blit(text, (self.x + (self.width/2 - text.get_width()/2), self.y + (self.height/2 - text.get_height()/2)))
 
     def klik(self, pos):
@@ -255,6 +260,7 @@ def restart():
     global trenutno_stanje
     global buttons
     global pokusana_slova
+    global greenbutton
 
     rec_duzina = vrati_duzinu(reci)
     broj_pokusaja = 5
@@ -268,10 +274,14 @@ def restart():
         
     for i in range(len(buttons)):
         buttons[i][4] = True
-       
+        
+    greenbutton  = button(ZELENA, 900, 200, 300,80,'HELP MEEE')
+   
     crtanje_prozora()
     global delovi
-    delovi=0
+    delovi = 0
+    global m
+    m = 0
 
 # namestanje dugmica
 d = round(sirina_prozora / 13) #uvecanje prilikom iscrtavanja kvadratica
@@ -302,7 +312,8 @@ rec = trenutno_stanje #rec mora da bude trenutno stanje jer ne mozemo da uzimamo
      
 igra = True
 greenbutton  = button(ZELENA, 900, 200, 300, 80,'HELP MEEE')
-
+# m kao brojac pritiska dugmeta za pomoc
+m = 0
 while igra:
     crtanje_prozora()
     pygame.time.delay(10)
@@ -314,8 +325,12 @@ while igra:
                 igra = False
         if event.type == pygame.MOUSEBUTTONDOWN:
             pozicija_misa = pygame.mouse.get_pos()
-            if greenbutton and greenbutton.klik(pozicija_misa):
-                delovi-=1
+            if greenbutton and greenbutton.klik(pozicija_misa) and delovi>0:
+                delovi -= 1
+                m += 1
+                if m>=2:
+                    greenbutton = False
+                    m = 0
             slovo = klik_dugme(pozicija_misa[0], pozicija_misa[1])
             if slovo != None:
                 pokusana_slova.append((chr(slovo)))
