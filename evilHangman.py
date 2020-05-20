@@ -81,6 +81,36 @@ def klik_dugme(x, y):
 
 
 
+class button():
+    def __init__(self, boja, x,y,sirina,visina, text=''):
+        self.color = boja
+        self.x = x
+        self.y = y
+        self.width = sirina
+        self.height = visina
+        self.text = text
+        self.self = True
+
+    def draw(self,win,out=None):
+       
+        if out:
+            pygame.draw.rect(win, out, (self.x-2,self.y-2,self.width+4,self.height+4),0)
+            
+        pygame.draw.rect(win, self.color, (self.x,self.y,self.width,self.height),0)
+        
+        if self.text != '':
+            font = pygame.font.SysFont('comicsans', 60)
+            text = font.render(self.text, 1, (0,0,0))
+            win.blit(text, (self.x + (self.width/2 - text.get_width()/2), self.y + (self.height/2 - text.get_height()/2)))
+
+    def klik(self, pos):
+      
+        if pos[0] > self.x and pos[0] < self.x + self.width:
+            if pos[1] > self.y and pos[1] < self.y + self.height:
+                return True
+            
+        return False
+
 
 
 def vrati_duzinu(reci):
@@ -271,6 +301,7 @@ rec = trenutno_stanje #rec mora da bude trenutno stanje jer ne mozemo da uzimamo
 
      
 igra = True
+greenbutton  = button(ZELENA, 900, 200, 300, 80,'HELP MEEE')
 
 while igra:
     crtanje_prozora()
@@ -283,6 +314,8 @@ while igra:
                 igra = False
         if event.type == pygame.MOUSEBUTTONDOWN:
             pozicija_misa = pygame.mouse.get_pos()
+            if greenbutton and greenbutton.klik(pozicija_misa):
+                delovi-=1
             slovo = klik_dugme(pozicija_misa[0], pozicija_misa[1])
             if slovo != None:
                 pokusana_slova.append((chr(slovo)))
