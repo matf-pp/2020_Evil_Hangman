@@ -1,5 +1,6 @@
 import pygame
 import random
+import sys
 
 pygame.init()
 visina_prozora = 680
@@ -248,6 +249,7 @@ def kraj(pobednik, rec):
         for event in pygame.event.get():
             if event.type == pygame.QUIT: #ukoliko smo kliknuli na x onda gasim prozor i izlazimo iz igrice 
                 pygame.quit()
+                sys.exit()
             if event.type == pygame.KEYDOWN: #ukoliko se unese nesto sa tastature pokrece se nova igra
                 again = False
     restart() #pokrecemo novu igru
